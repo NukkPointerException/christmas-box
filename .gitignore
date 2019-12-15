@@ -1,2 +1,5 @@
 .idea/
 venv/
+# No piracy here
+music/
+/api.key
