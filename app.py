@@ -61,9 +61,12 @@ def button_christmasfm(channel):
 # Music Logic
 def do_music():
     christmas_fm.stop()
+    global song_player
     if song_player.is_playing():
         song_player.stop()
     else:
+        # QnD fix for button not working twice
+        song_player = vlc.MediaPlayer("/home/pi/christmas-box/music/song.mp3")
         song_player.play()
 
 
@@ -88,6 +91,7 @@ def do_lights():
     # 2 was set to green, want it to transition it to red
     light_to_red = '2'
     for x in range(27):
+        print("looping number: " + str(x))
         print("loop setting " + light_to_red + "to red")
         print("loop setting " + light_to_green + "to green")
         transition_light_red(light_to_red)
