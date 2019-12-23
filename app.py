@@ -87,7 +87,7 @@ def do_lights():
     light_to_green = '4'
     # 2 was set to green, want it to transition it to red
     light_to_red = '2'
-    for x in range(29):
+    for x in range(27):
         print("loop setting " + light_to_red + "to red")
         print("loop setting " + light_to_green + "to green")
         transition_light_red(light_to_red)
@@ -96,11 +96,11 @@ def do_lights():
         temp = light_to_green
         light_to_green = light_to_red
         light_to_red = temp
-
+        time.sleep(9)
         # Allow for button press interrupt
-        for y in range(9):
+        #for y in range(9):
             # Todo: make this work with a button press interrupt
-            time.sleep(1)
+            #time.sleep(1)
 
 
 # Functions below are used for setting lights to green or red, either immediately or with a transition
