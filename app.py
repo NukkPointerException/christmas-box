@@ -87,7 +87,7 @@ def do_lights():
     light_to_green = '4'
     # 2 was set to green, want it to transition it to red
     light_to_red = '2'
-    for x in range(27):
+    for x in range(20):
         print("loop setting " + light_to_red + "to red")
         print("loop setting " + light_to_green + "to green")
         transition_light_red(light_to_red)
