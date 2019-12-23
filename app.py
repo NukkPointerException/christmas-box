@@ -13,13 +13,14 @@ GPIO.setup(14, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(15, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 # API key for Hue bridge
-f = open("api.key", "r")
+# Absolute path needed for running script as a service
+f = open("/home/pi/christmas-box/api.key", "r")
 key = f.read()
 bridge_url = 'http://192.168.0.242/api/' + key + '/lights/' # use lights 2 and 4
 state = '/state'
 
 # Global variables are always good
-song_player = vlc.MediaPlayer("music/song.mp3")
+song_player = vlc.MediaPlayer("/home/pi/christmas-box/music/song.mp3")
 christmas_fm = vlc.MediaPlayer("https://ice31.securenetsystems.net/XMASFMM")
 
 # JSON payloads for light colours
@@ -144,5 +145,6 @@ GPIO.add_event_detect(15,GPIO.FALLING,callback=button_christmasfm)
 
 
 # Prevent program from ending
-message = input("Press enter to quit\n\n")
-GPIO.cleanup()
+while True:
+    num = 1 + 1
+# GPIO.cleanup()
